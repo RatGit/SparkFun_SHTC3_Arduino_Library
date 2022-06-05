@@ -78,7 +78,10 @@ public:
 
 	uint16_t RH; // Current raw RH data from the sensor
 	uint16_t T;	 // Current raw T data from the sensor
-	uint16_t ID; // Current raw ID data from the sensor
+ #pragma push_macro("ID")  // KCW: Macro with same name already defined in "/SPIMemory/defines.h"
+ #undef ID
+	 uint16_t ID; // Current raw ID data from the sensor
+ #pragma pop_macro("ID")
 
 	float toDegC();	   // Returns the floating point value of T in deg C
 	float toDegF();	   // Returns the floating point value of T in deg F
